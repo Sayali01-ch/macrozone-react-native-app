@@ -1,0 +1,1 @@
+# macrozone-react-native-app
