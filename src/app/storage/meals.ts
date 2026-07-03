@@ -1,11 +1,13 @@
-let AsyncStorage: any;
-
+let AsyncStorage: any = null;
 try {
-    AsyncStorage = require('@react-native-async-storage/async-storage').default;
+    AsyncStorage = typeof window !== 'undefined' && window.localStorage ? {
+        getItem: (key: string) => Promise.resolve(localStorage.getItem(key)),
+        setItem: (key: string, value: string) => Promise.resolve(localStorage.setItem(key, value)),
+        removeItem: (key: string) => Promise.resolve(localStorage.removeItem(key))
+    } : null;
 } catch (err) {
     console.warn('AsyncStorage not available');
 }
-
 export type Meal={
     id:string;
     name: string;
