@@ -1,6 +1,5 @@
- import { DarkTheme, DefaultTheme, ThemeProvider } from 'expo-router';
- import { useColorScheme } from 'react-native';
-
+  
+import React from 'react';
 // import { AnimatedSplashOverlay } from '@/components/animated-icon';
 // import AppTabs from '@/components/app-tabs';
 
@@ -26,21 +25,12 @@
 //     />
 //   );
 // }
-
-import { colors } from '@/styles/global';
 import { Stack } from 'expo-router';
 
 export default function RootLayout() {
   return (
-    <Stack
-      screenOptions={{
-        headerStyle: { backgroundColor: colors.header },
-        headerTintColor: '#fff',
-      }}
-    >
-      <Stack.Screen name='index' options={{ headerShown: false }} />
-      <Stack.Screen options={{ title: 'Meals' }} name='meals' />
-      <Stack.Screen options={{ title: 'Add Meal' }} name='add-meal' />
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name='(tabs)' />
     </Stack>
   );
 }
